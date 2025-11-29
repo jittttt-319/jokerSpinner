@@ -59,14 +59,14 @@ const JokerSpinner = () => {
       let shouldShowJoker = false;
       
       if (newCount === 1) {
-        // 1 click: 60% chance to show joker
-        shouldShowJoker = Math.random() < 0.6;
+        // 1 click: 50/50 chance
+        shouldShowJoker = Math.random() < 0.5;
       } else if (newCount === 2) {
         // 2 clicks: never show joker
         shouldShowJoker = false;
       } else {
-        // 3+ clicks: 60% chance to show joker
-        shouldShowJoker = Math.random() < 0.6;
+        // 3+ clicks: 50/50 chance
+        shouldShowJoker = Math.random() < 0.5;
       }
       
       // Mark that we have a result
