@@ -2,9 +2,8 @@ import { useState } from 'react';
 import './ResolutionSelector.css';
 import jokerImage from '../images/jokerImages.jpeg';
 
-const ResolutionSelector = () => {
+const ResolutionSelector = ({ setIs4kFullscreen }) => {
   const [resolution, setResolution] = useState('720p');
-  const [is4kFullscreen, setIs4kFullscreen] = useState(false);
 
   const handleChange = (e) => {
     const newResolution = e.target.value;
@@ -13,10 +12,6 @@ const ResolutionSelector = () => {
     if (newResolution === '4k') {
       setIs4kFullscreen(true);
     }
-  };
-
-  const handle4kClick = () => {
-    setIs4kFullscreen(false);
   };
 
   const renderContent = () => {
@@ -45,34 +40,26 @@ const ResolutionSelector = () => {
   };
 
   return (
-    <>
-      {is4kFullscreen && (
-        <div className="fullscreen-black" onClick={handle4kClick}>
-          <p className="click-hint">Click anywhere to exit</p>
-        </div>
-      )}
-      
-      <div className="resolution-selector-container">
-        <h2>能看清你吗</h2>
-        <div className="controls">
-          <label htmlFor="resolution-dropdown">Select Resolution: </label>
-          <select 
-            id="resolution-dropdown"
-            value={resolution} 
-            onChange={handleChange}
-            className="resolution-dropdown"
-          >
-            <option value="720p">720p</option>
-            <option value="1080p">1080p</option>
-            <option value="4k">4k</option>
-          </select>
-        </div>
-
-        <div className="display-area">
-          {renderContent()}
-        </div>
+    <div className="resolution-selector-container">
+      <h2>能看清你吗</h2>
+      <div className="controls">
+        <label htmlFor="resolution-dropdown">Select Resolution: </label>
+        <select 
+          id="resolution-dropdown"
+          value={resolution} 
+          onChange={handleChange}
+          className="resolution-dropdown"
+        >
+          <option value="720p">720p</option>
+          <option value="1080p">1080p</option>
+          <option value="4k">4k</option>
+        </select>
       </div>
-    </>
+
+      <div className="display-area">
+        {renderContent()}
+      </div>
+    </div>
   );
 };
 
