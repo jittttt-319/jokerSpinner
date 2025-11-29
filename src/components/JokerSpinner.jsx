@@ -127,7 +127,7 @@ const JokerSpinner = () => {
 
   return (
     <div className="joker-spinner-container">
-      <h2>猜猜你是谁</h2>
+      <h2>小丑检测器</h2>
       <p style={{ visibility: 'hidden' }}>Count: {count}</p>
       <button onClick={handleSpin}>按这里</button>
       
