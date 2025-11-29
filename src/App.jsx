@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import { Analytics } from '@vercel/analytics/react'
 import JokerSpinner from './components/JokerSpinner'
 import ResolutionSelector from './components/ResolutionSelector'
 import './App.css'
@@ -34,6 +35,8 @@ function App() {
           {currentMode === 'spinner' ? <JokerSpinner /> : <ResolutionSelector setIs4kFullscreen={setIs4kFullscreen} />}
         </div>
       </div>
+      
+      <Analytics />
     </>
   )
 }
