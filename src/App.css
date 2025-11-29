@@ -1,0 +1,148 @@
+#root {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: center;
+}
+
+.app-container {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+  animation: fadeIn 0.5s ease-in;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.app-container h1 {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  font-size: 3.5em;
+  margin-bottom: 10px;
+  text-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.mode-switcher {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  margin-bottom: 20px;
+  padding: 8px;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 50px;
+  width: fit-content;
+  margin-left: auto;
+  margin-right: auto;
+  backdrop-filter: blur(10px);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+}
+
+.mode-switcher button {
+  font-size: 1.1em;
+  padding: 12px 30px;
+  border-radius: 50px;
+  transition: all 0.3s ease;
+  background: transparent;
+  border: 2px solid transparent;
+  position: relative;
+  overflow: hidden;
+}
+
+.mode-switcher button::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+  transition: left 0.5s;
+}
+
+.mode-switcher button:hover::before {
+  left: 100%;
+}
+
+.mode-switcher button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
+}
+
+.mode-switcher button.active-mode {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  border-color: transparent;
+  color: white;
+  box-shadow: 0 5px 20px rgba(102, 126, 234, 0.6);
+  transform: scale(1.05);
+}
+
+.content-area {
+  padding: 40px;
+  background: linear-gradient(135deg, rgba(30, 30, 30, 0.9) 0%, rgba(40, 40, 40, 0.9) 100%);
+  border-radius: 24px;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  transition: all 0.3s ease;
+}
+
+.content-area:hover {
+  box-shadow: 0 25px 70px rgba(0, 0, 0, 0.4);
+  transform: translateY(-5px);
+}
+
+/* Mobile Responsive Styles */
+@media (max-width: 768px) {
+  #root {
+    padding: 1rem;
+  }
+
+  .app-container {
+    gap: 25px;
+  }
+
+  .app-container h1 {
+    font-size: 2.2em;
+    margin-bottom: 5px;
+  }
+
+  .mode-switcher {
+    flex-direction: column;
+    gap: 10px;
+    width: 100%;
+    padding: 10px;
+  }
+
+  .mode-switcher button {
+    font-size: 1em;
+    padding: 12px 25px;
+    width: 100%;
+  }
+
+  .content-area {
+    padding: 20px;
+  }
+}
+
+@media (max-width: 480px) {
+  .app-container h1 {
+    font-size: 1.8em;
+  }
+
+  .mode-switcher button {
+    font-size: 0.95em;
+    padding: 10px 20px;
+  }
+}
+
